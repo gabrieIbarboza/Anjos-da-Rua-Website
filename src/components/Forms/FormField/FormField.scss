@@ -30,7 +30,8 @@
         
         transition: all .3s;
         
-        &:focus {
+        &:focus,
+        &:hover {
             border-color: $accent-color;
             color: $text-color;
         }

@@ -7,11 +7,11 @@ export function FamilyForm() {
 
     const {handleChange, values, clearForm} = useForm({
         nome: "",
+        Escolaridade: "",
         estadocivil: "",
         rg: "",
         cpf: "",
         dtnasc: "",
-        escola: "",
         endereco: "",
         q1: "",
     })
@@ -40,6 +40,7 @@ export function FamilyForm() {
                     onChange={handleChange}
                 />
                 <FormSelect
+                    label="Escolaridade"
                     values={select_escolaridade}
                 />
                 <FormField 
