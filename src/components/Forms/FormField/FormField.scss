@@ -1,0 +1,60 @@
+@import '../../../sassStyles/variables';
+
+.formFieldWrapper {
+
+    max-width: 800px;
+    position: relative;
+    textarea {
+        min-height: 150px;
+    }
+
+    .labelText {
+
+        color: $text-light-color;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 300;
+
+        align-items: center;
+        display: flex;
+        position: absolute; 
+        top: 0;
+        left: 16px;
+        
+        height: 57px;
+        
+        transform-origin: 0% 0%;
+        transition: .1s ease-in-out;
+    }
+
+    .input {
+        background: $primary-color;
+        color: $text-color;
+        font-size: 18px;
+
+        border: 2px solid $text-light-color;
+        border-radius: 15px;
+        outline: 0;
+        resize: none;
+
+        padding: 16px 16px;
+        margin: 20px 0;
+
+        display: block;
+        height: 57px;
+        width: 100%;
+        
+        transition: border-color .3s;
+        
+        &:focus {
+            border-color: $accent-color;
+        }
+        &:focus + .labelText {
+            color: $accent-color;
+        }
+        &:focus + .labelText,
+        &[hasValue] + .labelText {
+            transform: scale(.6) translateY(-10px); 
+        }
+    }
+}
