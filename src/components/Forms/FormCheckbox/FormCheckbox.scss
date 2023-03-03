@@ -1,0 +1,51 @@
+@import '../../../sassStyles/variables';
+
+.checkboxFieldWrapper {
+
+    max-width: 800px;
+    position: relative;
+
+    margin: 10px 0;
+
+    label {
+        display: flex;
+        align-items: center;
+
+        input {
+            //removendo aparência default
+            appearance: none;
+            -webkit-appearance: none;
+    
+            //Criando um design customizado
+            background-color: $text-light-color;
+            border-radius: 0.4em;
+            cursor: pointer;
+            margin-right: 0.5em;
+            outline: none;
+            height: 2em;
+            width: 2em;
+    
+            &:checked {
+                background-color: $accent-color;
+            }
+            &:focus {
+                box-shadow: 0 0 10px $accent-color;
+            }
+            &::before {
+                content: "✓";
+                color: $primary-color;
+                font-size: 1.5em;
+                font-weight: bold;
+                position: absolute;
+                left: 4px;
+                top: 4px;
+            }
+        }
+    
+        .labelText {
+            cursor: pointer;
+            padding: 10px;
+        }
+    }
+
+}

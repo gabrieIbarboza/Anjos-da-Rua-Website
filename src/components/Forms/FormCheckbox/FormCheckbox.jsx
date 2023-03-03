@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import "./CheckboxField.scss";
+import "./FormCheckbox.scss";
 
 //Add Icon later: https://codepen.io/fatmali/pen/aboNdra
 
-export function CheckboxField({ 
+export function FormCheckbox({ 
     label, name, value, onChange 
 }) {
     const fieldId = `id_${name}`;
@@ -28,12 +28,12 @@ export function CheckboxField({
     )
 }
 
-CheckboxField.defaultProps = {
+FormCheckbox.defaultProps = {
     value: false,
     onChange: () => {},
 };
   
-CheckboxField.propTypes = {
+FormCheckbox.propTypes = {
     label: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     value: PropTypes.string,
