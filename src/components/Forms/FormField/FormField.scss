@@ -8,28 +8,9 @@
         min-height: 150px;
     }
 
-    .labelText {
-
-        color: $text-light-color;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 300;
-
-        align-items: center;
-        display: flex;
-        position: absolute; 
-        top: 0;
-        left: 16px;
-        
-        height: 57px;
-        
-        transform-origin: 0% 0%;
-        transition: .1s ease-in-out;
-    }
-
     .input {
         background: $primary-color;
-        color: $text-color;
+        color: lighten($text-color, 60%);
         font-size: 18px;
 
         border: 2px solid $text-light-color;
@@ -48,13 +29,34 @@
         
         &:focus {
             border-color: $accent-color;
+            color: $text-color;
         }
         &:focus + .labelText {
             color: $accent-color;
         }
         &:focus + .labelText,
-        &[hasValue] + .labelText {
+        &[data-hasvalue=true] + .labelText,
+        &[type=date] + .labelText {
             transform: scale(.6) translateY(-10px); 
         }
+    }
+
+    .labelText {
+
+        color: $text-light-color;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 300;
+
+        align-items: center;
+        display: flex;
+        position: absolute; 
+        top: 0;
+        left: 16px;
+        
+        height: 57px;
+        
+        transform-origin: 0% 0%;
+        transition: .1s ease-in-out;
     }
 }

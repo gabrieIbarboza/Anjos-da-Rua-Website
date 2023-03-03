@@ -10,46 +10,49 @@ export function FormField({
 }) {
 
     const fieldId = `id_${name}`;
-    const isTypeTextarea = type === 'textarea';
+    const hasValue = Boolean(value.length);
 
-    if(!isTypeTextarea)
-    {
-        return (
-            <div className="formFieldWrapper">
-                <label htmlFor={fieldId}>
-                    <input
-                        type={type}
-                        className="input"
-                        id={fieldId}
-                        name={name}
-                        value={value}
-                        onChange={onChange}
-                    />
-                    <span className="labelText">
-                        {label}
-                    </span>
-                </label>
-            </div>
-        )
-    }
-    else {
-        return (
-            <div className="formFieldWrapper">
-                <label htmlFor={fieldId}>
-                    <textarea
-                        type={type}
-                        className="input"
-                        id={fieldId}
-                        name={name}
-                        value={value}
-                        onChange={onChange}
-                    />
-                    <span className="labelText">
-                        {label}
-                    </span>
-                </label>
-            </div>
-        )
+    switch (type) {
+        case "textarea":
+            return (
+                <div className="formFieldWrapper">
+                    <label htmlFor={fieldId}>
+                        <textarea
+                            type={type}
+                            className="input"
+                            id={fieldId}
+                            name={name}
+                            value={value}
+                            data-hasvalue={hasValue}
+                            onChange={onChange}
+                        />
+                        <span className="labelText">
+                            {label}
+                        </span>
+                    </label>
+                </div>
+            )
+            break;
+        default:
+            return (
+                <div className="formFieldWrapper">
+                    <label htmlFor={fieldId}>
+                        <input
+                            type={type}
+                            className="input"
+                            id={fieldId}
+                            name={name}
+                            value={value}
+                            data-hasvalue={hasValue}
+                            onChange={onChange}
+                        />
+                        <span className="labelText">
+                            {label}
+                        </span>
+                    </label>
+                </div>
+            )
+            break;
     }
 }
 
