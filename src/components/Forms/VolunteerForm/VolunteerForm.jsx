@@ -4,7 +4,7 @@ import { FormCheckbox } from "../FormCheckbox/FormCheckbox";
 
 export function VolunteerForm() {
 
-    const {handleChange, values} = useForm({
+    const {handleChange, values, clearForm} = useForm({
         nome: "",
         estadocivil: "",
         rg: "",
@@ -27,16 +27,14 @@ export function VolunteerForm() {
     // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e);
+        console.log(values);
     };
-
-    //const handleChange = (values: any) => {setValues(values)};
 
     return (
         <div className='formWrapper'>
             <form onSubmit={handleSubmit}>
 
-                <h2>Informações Pessoais:</h2>
+                <h2>Informações Pessoais</h2>
                 <FormField
                     label="Nome"
                     name="nome"
@@ -142,6 +140,10 @@ export function VolunteerForm() {
                     value={values.checkcadastro}
                     onChange={handleChange}
                 />
+
+                <button type="submit" className="default-button">
+                    Enviar Respostas
+                </button>
             </form>
         </div>
     )

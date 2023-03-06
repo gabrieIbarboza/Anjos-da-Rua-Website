@@ -10,15 +10,39 @@
 
 body {
     font-family: 'Roboto';
-}
 
-main {
-    background-color: $primary-color;
-    color: $text-color;
-    flex: 1;
-    min-height: 80vh;
-    padding-top: 50px;
-    padding-left: 5%;
-    padding-right: 5%;
-    width: 100vw;
+    main {
+        background-color: $primary-color;
+        color: $text-color;
+        flex: 1;
+        min-height: 80vh;
+        padding-top: 50px;
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 100vw;
+
+        .default-button {
+            background-color: $secondary-color;
+            border-radius: .4em;
+            box-sizing: border-box;
+            color: $primary-color;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: bold;
+            padding: 16px 24px;
+            text-decoration: none;
+            transition: all .3s;
+            width: 100%;
+
+            border: none;
+            outline: none;
+
+            &:hover,
+            &:focus {
+                opacity: .5;
+            }
+        }
+    }
 }

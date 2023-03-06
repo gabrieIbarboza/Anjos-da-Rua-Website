@@ -6,6 +6,9 @@
     position: relative;
     textarea {
         min-height: 150px;
+        &[data-hasvalue=true] + .labelText {
+            display: none;
+        }
     }
 
     .input {
@@ -25,7 +28,7 @@
         height: 57px;
         width: 100%;
         
-        transition: border-color .3s;
+        transition: all .3s;
         
         &:focus {
             border-color: $accent-color;
