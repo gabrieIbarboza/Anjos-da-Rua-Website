@@ -10,7 +10,7 @@ header {
         right: 1rem;
         top: 1rem;
         width: 28px;
-        z-index: 1;
+        z-index: 2;
         @include transition-ease;
 
         &__burguer {
@@ -63,6 +63,7 @@ header {
         top: 0;
         visibility: hidden;
         width: 100vw;
+        z-index: 1;
 
         &[data-open=true] {
             visibility: visible;
