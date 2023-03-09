@@ -1,6 +1,7 @@
 import React from "react";
 import { FormField } from "../FormField/FormField";
 import { useForm } from "../../../hooks/useForm"
+import { FormSelect } from "../FormSelect/FormSelect";
 
 export function FamilyForm() {
 
@@ -21,6 +22,11 @@ export function FamilyForm() {
         console.log(values);
     };
 
+    const select_escolaridade = [
+        {label: 'Ensino Fundamental', value: 'Ensino Fundamental'},
+        {label: 'Ensino Médio', value: 'Ensino Médio'},
+    ];
+
     return (
 
         <div className='formWrapper'>
@@ -32,6 +38,9 @@ export function FamilyForm() {
                     name="nome"
                     value={values.nome}
                     onChange={handleChange}
+                />
+                <FormSelect 
+                    values={select_escolaridade}
                 />
                 <FormField 
                     label="Estado Civil"
