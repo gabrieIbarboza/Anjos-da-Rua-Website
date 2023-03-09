@@ -7,7 +7,7 @@
     textarea {
         min-height: 150px;
         &[data-hasvalue=true][data-hidetxtarealabel=true] + .labelText {
-            display: none;
+            opacity: 0;
         }
     }
 
