@@ -39,7 +39,7 @@ export function FamilyForm() {
                     value={values.nome}
                     onChange={handleChange}
                 />
-                <FormSelect 
+                <FormSelect
                     values={select_escolaridade}
                 />
                 <FormField 
@@ -65,12 +65,6 @@ export function FamilyForm() {
                     label="Data de Nascimento"
                     name="dtnasc"
                     value={values.dtnasc}
-                    onChange={handleChange}
-                />
-                <FormField 
-                    label="Escolaridade"
-                    name="escola"
-                    value={values.escola}
                     onChange={handleChange}
                 />
                 <FormField 
