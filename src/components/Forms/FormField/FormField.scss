@@ -6,7 +6,7 @@
     position: relative;
     textarea {
         min-height: 150px;
-        &[data-hasvalue=true] + .labelText {
+        &[data-hasvalue=true][data-hidetxtarealabel=true] + .labelText {
             display: none;
         }
     }
