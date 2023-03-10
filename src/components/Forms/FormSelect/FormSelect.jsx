@@ -1,11 +1,21 @@
 import Select from 'react-select';
 
+import './FormSelect.scss';
+
 export function FormSelect({
-    values, label
+    label, name, values, onChange
 }) {
 
-    const handleChange = (selectedOption) => {
-        console.log('handleChange', selectedOption)
+    const handleChange = (e) => {
+        console.log('handleChange', e)
+        if(e !== null && e !== undefined)
+        {
+            onChange(e);
+        }
+        else
+        {
+            onChange({selectid: name, value: ""})
+        }
     }
 
     const selectStyles = {

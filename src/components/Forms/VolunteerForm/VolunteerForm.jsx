@@ -1,16 +1,18 @@
-import { FormField } from "../FormField/FormField";
 import { useForm } from "../../../hooks/useForm";
 import { FormCheckbox } from "../FormCheckbox/FormCheckbox";
+import { FormField } from "../FormField/FormField";
+import { FormSelect } from "../FormSelect/FormSelect";
+import { select_escolaridade, select_estadocivil } from "../FormSelect/SelectDefaultValues/SelectDefaultValues";
 
 export function VolunteerForm() {
 
     const {handleChange, values, clearForm} = useForm({
         nome: "",
-        estadocivil: "",
         rg: "",
         cpf: "",
         dtnasc: "",
-        escola: "",
+        escolaridade: "",
+        estadocivil: "",
         endereco: "",
         checkvoluntario: false,
         checkcompras: false,
@@ -42,12 +44,6 @@ export function VolunteerForm() {
                     onChange={handleChange}
                 />
                 <FormField 
-                    label="Estado Civil"
-                    name="estadocivil"
-                    value={values.estadocivil}
-                    onChange={handleChange}
-                />
-                <FormField 
                     label="RG"
                     name="rg"
                     value={values.rg}
@@ -66,10 +62,16 @@ export function VolunteerForm() {
                     value={values.dtnasc}
                     onChange={handleChange}
                 />
-                <FormField 
+                <FormSelect
                     label="Escolaridade"
-                    name="escola"
-                    value={values.escola}
+                    name="escolaridade"
+                    values={select_escolaridade}
+                    onChange={handleChange}
+                />
+                <FormSelect 
+                    label="Estado Civil"
+                    name="estadocivil"
+                    values={select_estadocivil}
                     onChange={handleChange}
                 />
                 <FormField 

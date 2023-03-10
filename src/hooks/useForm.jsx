@@ -21,7 +21,14 @@ export function useForm(startValues) {
     }
 
     function handleChange(e) {
-        if(e.target.getAttribute('type') === "checkbox")
+        if(!!e.selectid)
+        {
+            setValue(
+                e.selectid,
+                e.value,
+            );
+        }
+        else if(e.target.getAttribute('type') === "checkbox")
         {
             setValue(
                 e.target.getAttribute('name'),

@@ -1,17 +1,18 @@
 import React from "react";
+import { useForm } from "../../../hooks/useForm";
 import { FormField } from "../FormField/FormField";
-import { useForm } from "../../../hooks/useForm"
 import { FormSelect } from "../FormSelect/FormSelect";
+import { select_escolaridade, select_estadocivil } from "../FormSelect/SelectDefaultValues/SelectDefaultValues";
 
 export function FamilyForm() {
 
     const {handleChange, values, clearForm} = useForm({
         nome: "",
-        Escolaridade: "",
-        estadocivil: "",
         rg: "",
         cpf: "",
         dtnasc: "",
+        escolaridade: "",
+        estadocivil: "",
         endereco: "",
         q1: "",
     })
@@ -21,11 +22,6 @@ export function FamilyForm() {
         e.preventDefault();
         console.log(values);
     };
-
-    const select_escolaridade = [
-        {label: 'Ensino Fundamental', value: 'Ensino Fundamental'},
-        {label: 'Ensino Médio', value: 'Ensino Médio'},
-    ];
 
     return (
 
@@ -37,16 +33,6 @@ export function FamilyForm() {
                     label="Nome"
                     name="nome"
                     value={values.nome}
-                    onChange={handleChange}
-                />
-                <FormSelect
-                    label="Escolaridade"
-                    values={select_escolaridade}
-                />
-                <FormField 
-                    label="Estado Civil"
-                    name="estadocivil"
-                    value={values.estadocivil}
                     onChange={handleChange}
                 />
                 <FormField 
@@ -66,6 +52,18 @@ export function FamilyForm() {
                     label="Data de Nascimento"
                     name="dtnasc"
                     value={values.dtnasc}
+                    onChange={handleChange}
+                />
+                <FormSelect
+                    label="Escolaridade"
+                    name="escolaridade"
+                    values={select_escolaridade}
+                    onChange={handleChange}
+                />
+                <FormSelect 
+                    label="Estado Civil"
+                    name="estadocivil"
+                    values={select_estadocivil}
                     onChange={handleChange}
                 />
                 <FormField 
