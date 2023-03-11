@@ -6,11 +6,10 @@ export function FormSelect({
     label, name, values, onChange
 }) {
 
-    const handleChange = (e) => {
-        console.log('handleChange', e)
-        if(e !== null && e !== undefined)
+    const handleChange = (val) => {
+        if(val !== null && val !== undefined)
         {
-            onChange(e);
+            onChange(val);
         }
         else
         {
