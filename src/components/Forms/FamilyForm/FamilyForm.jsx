@@ -2,27 +2,48 @@ import React from "react";
 import { useForm } from "../../../hooks/useForm";
 import { FormField } from "../FormField/FormField";
 import { FormSelect } from "../FormSelect/FormSelect";
-import { select_qtd, select_escolaridade, select_estadocivil, select_residencia } from "../FormSelect/SelectDefaultValues/SelectDefaultValues";
+import { select_qtd, select_escolaridade, select_estadocivil, select_residencia, select_renda, select_emprego, select_escolaridade_criancas, select_istrue } from "../FormSelect/SelectDefaultValues/SelectDefaultValues";
 
 export function FamilyForm() {
 
     const {handleChange, values, clearForm} = useForm({
+        //Usuario
         nome: "",
         rg: "",
         cpf: "",
         dtnasc: "",
         escolaridade: "",
         estadocivil: "",
+        emprego: "",
+        renda: "",
         sonhovida: "",
         sonhoprof: "",
+        //Familia
         endereco: "",
         residencia: "",
         quartos: "",
         banheiros: "",
         tvs: "",
         familia: "",
-        q1: "",
-    })
+        parentesco: "",
+        escolaridade_familia: "",
+        escolaridade_criancas: "",
+        especial: "",
+        cuidadosespecial: "",
+        //Financas
+        emprego_familia: "",
+        renda_familia: "",
+        despesasgerais: "",
+        despesassaude: "",
+        despesasaslimentacao: "",
+        despesasespeciais: "",
+        rendasuficiente: "",
+        //Beneficios
+        bolsafamilia: "",
+        loas: "",
+        cadunico: "",
+        outrobeneficio: "",
+    });
 
     // Handle form submission
     const handleSubmit = (e) => {
@@ -34,6 +55,12 @@ export function FamilyForm() {
     const select_qtd_banheiros = select_qtd("banheiros")
     const select_qtd_tvs = select_qtd("tvs")
     const select_qtd_familia = select_qtd("familia")
+    const select_renda_user = select_renda("renda")
+    const select_renda_familia = select_renda("renda_familia")
+    const select_especial = select_istrue("especial")
+    const select_rendasuficiente = select_istrue("rendasuficiente")
+    const select_bolsafamilia = select_istrue("bolsafamilia")
+    const select_loas = select_istrue("loas")
 
     return (
 
@@ -78,8 +105,21 @@ export function FamilyForm() {
                     values={select_estadocivil}
                     onChange={handleChange}
                 />
-                //Está empregado
-                //Renda
+                <FormSelect
+                    label="Situação de Emprego"
+                    name="emprego"
+                    values={select_emprego}
+                    onChange={handleChange}
+                />
+                <label htmlFor="id_renda" className="questionlabel">
+                    Geralmente, qual seu valor de renda mensal? 
+                </label>
+                <FormSelect
+                    label="Renda Mensal"
+                    name="renda"
+                    values={select_renda_user}
+                    onChange={handleChange}
+                />
                 <FormField 
                     type="textarea"
                     label="Qual seu maior sonho de vida?"
@@ -107,7 +147,7 @@ export function FamilyForm() {
                     onChange={handleChange}
                 />
                 <FormSelect 
-                    label="Qual o tipo de residência?"
+                    label="Qual o tipo de moradia?"
                     name="residencia"
                     values={select_residencia}
                     onChange={handleChange}
@@ -130,26 +170,160 @@ export function FamilyForm() {
                     values={select_qtd_tvs}
                     onChange={handleChange}
                 />
-                <label htmlForm="id_familia" className="questionlabel">
-                    Você mora com quantas pessoas?
+                <label htmlFor="id_familia" className="questionlabel">
+                    Moram quantas pessoas? (Contando com você)
                 </label>
                 <FormSelect
-                    id="id_familia"
-                    label="Você mora com quantas pessoas?"
+                    label="Moram quantas pessoas?"
                     name="familia"
                     values={select_qtd_familia}
                     onChange={handleChange}
                 />
-
-
-                <label className="questionlabel">1.) a</label>
+                <label htmlFor="id_parentesco" className="questionlabel">
+                    Qual o seu grau de parentesco com as pessoas que moram com você e a idade delas? Há crianças?
+                </label>
                 <FormField 
                     type="textarea"
                     label="Insira sua resposta"
-                    name="q1"
-                    value={values.q1}
+                    name="parentesco"
+                    value={values.parentesco}
                     onChange={handleChange}
                 />
+                <label htmlFor="id_escolaridade_familia" className="questionlabel">
+                    Qual o grau de escolaridade das pessoas que moram com você?
+                </label>
+                <FormField 
+                    type="textarea"
+                    label="Insira sua resposta"
+                    name="escolaridade_familia"
+                    value={values.escolaridade_familia}
+                    onChange={handleChange}
+                />
+                <FormSelect
+                    label="As crianças estudam?"
+                    name="escolaridade_criancas"
+                    values={select_escolaridade_criancas}
+                    onChange={handleChange}
+                />
+                <label htmlFor="id_especial" className="questionlabel">
+                    Há alguma pessoa com necessidades especiais?
+                </label>
+                <FormSelect
+                    label="Necessidade Especial"
+                    name="especial"
+                    values={select_especial}
+                    onChange={handleChange}
+                />
+                <label htmlFor="id_cuidadosespecial" className="questionlabel">
+                A pessoa com deficiência depende única e exclusivamente de um cuidador (pode ser uma pessoa do grupo familiar)?
+                </label>
+                <FormField 
+                    type="textarea"
+                    label="Insira sua resposta"
+                    name="cuidadosespecial"
+                    value={values.cuidadosespecial}
+                    onChange={handleChange}
+                />
+
+
+                <h3>Financeiro</h3>
+                <label htmlFor="id_emprego_familia" className="questionlabel">
+                    Qual a situação de emprego de cada pessoa do grupo familiar?
+                </label>
+                <FormField 
+                    type="textarea"
+                    label="Insira sua resposta"
+                    name="emprego_familia"
+                    value={values.emprego_familia}
+                    onChange={handleChange}
+                />
+                <label htmlFor="id_renda_familia" className="questionlabel">
+                    Geralmente, qual a soma dos valores de renda mensal de todos do grupo familiar? 
+                </label>
+                <FormSelect
+                    label="Renda Mensal Familiar"
+                    name="renda_familia"
+                    values={select_renda_familia}
+                    onChange={handleChange}
+                />
+                <FormField 
+                    label="Despesas Com a Casa"
+                    name="despesasgerais"
+                    value={values.despesasgerais}
+                    onChange={handleChange}
+                />
+                <FormField 
+                    label="Despesas Com Saúde (ex: Convênio)"
+                    name="despesassaude"
+                    value={values.despesassaude}
+                    onChange={handleChange}
+                />
+                <FormField 
+                    label="Despesas Com Alimentação"
+                    name="despesasaslimentacao"
+                    value={values.despesasaslimentacao}
+                    onChange={handleChange}
+                />
+                <FormField 
+                    label="Despesas Com Cuidados de Pessoal Deficiente"
+                    name="despesasespeciais"
+                    value={values.despesasespeciais}
+                    onChange={handleChange}
+                />
+                <label htmlFor="id_rendasuficiente" className="questionlabel">
+                    Atualmente, a renda do grupo familiar é suficiente para o sustento de todos?                 </label>
+                <FormSelect 
+                    label="A renda é suficiente?"
+                    name="rendasuficiente"
+                    values={select_rendasuficiente}
+                    onChange={handleChange}
+                />
+
+
+                <h3>Benefícios e Direitos</h3>
+                <label htmlFor="id_bolsafamilia" className="questionlabel">
+                    O grupo familiar recebe Bolsa Família?
+                </label>
+                <FormSelect 
+                    label="Recebem Bolsa Família?"
+                    name="bolsafamilia"
+                    values={select_bolsafamilia}
+                    onChange={handleChange}
+                />
+                <label htmlFor="id_loas" className="questionlabel">
+                    Recebem benefício de prestação continuada BPC/LOAS?
+                </label>
+                <FormSelect 
+                    label="Recebem BCP/LOAS?"
+                    name="loas"
+                    values={select_loas}
+                    onChange={handleChange}
+                />
+                <label htmlFor="id_cadunico" className="questionlabel">
+                    Se possui, qual o número do CadÚnico do grupo familiar?
+                </label>
+                <FormField
+                    type="number"
+                    label="N° CadÚnico"
+                    name="cadunico"
+                    value={values.cadunico}
+                    onChange={handleChange}
+                />
+                <label htmlFor="id_outrobeneficio" className="questionlabel">
+                    O grupo familiar recebe algum outro benefício?
+                </label>
+                <FormField 
+                    type="textarea"
+                    label="Insira sua resposta"
+                    name="outrobeneficio"
+                    value={values.outrobeneficio}
+                    onChange={handleChange}
+                />
+
+
+                <span>
+                    <strong>*No dia da retirada da cesta básica levar os seguintes documentos:</strong>  - RG/CPF de todos que moram na mesma casa e comprovante de endereço.
+                </span>
 
                 <button type="submit" className="default-button">
                     Enviar Respostas

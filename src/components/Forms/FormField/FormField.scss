@@ -43,6 +43,16 @@
         &[type=date] + .labelText {
             transform: scale(.6) translateY(-10px); 
         }
+
+        //Hiding number input arrows
+        &[type=number] {
+            -moz-appearance: textfield;
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+            }
+        }
     }
 
     .labelText {

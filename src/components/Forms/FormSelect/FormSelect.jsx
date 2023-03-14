@@ -6,6 +6,8 @@ export function FormSelect({
     label, name, values, onChange
 }) {
 
+    const selectId = `id_${name}`;
+
     const handleChange = (val) => {
         if(val !== null && val !== undefined)
         {
@@ -36,6 +38,7 @@ export function FormSelect({
     return (
         <div className='selectWrapper'>
             <Select
+                id={selectId}
                 options={ values }
                 isClearable
                 isSearchable
