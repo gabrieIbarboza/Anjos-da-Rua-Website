@@ -2,22 +2,36 @@ import React from "react";
 import { useForm } from "../../../hooks/useForm";
 import { FormField } from "../FormField/FormField";
 import { FormSelect } from "../FormSelect/FormSelect";
-import { select_qtd, select_escolaridade, select_estadocivil, select_residencia, select_renda, select_emprego, select_escolaridade_criancas, select_istrue } from "../FormSelect/SelectDefaultValues/SelectDefaultValues";
+import { select_school, select_marital, select_worksstatus, select_income, select_qtd, select_residencia, select_escolaridade_criancas, select_istrue } from "../FormSelect/SelectDefaultValues/SelectDefaultValues";
+
+const select_user_school = select_school("user_school")
+const select_user_marital= select_marital("user_marital")
+const select_user_worksstatus= select_worksstatus("user_worksstatus")
+const select_user_income = select_income("user_income")
+const select_qtd_quartos = select_qtd("quartos")
+const select_qtd_banheiros = select_qtd("banheiros")
+const select_qtd_tvs = select_qtd("tvs")
+const select_qtd_familia = select_qtd("familia")
+const select_renda_familia = select_income("renda_familia")
+const select_especial = select_istrue("especial")
+const select_rendasuficiente = select_istrue("rendasuficiente")
+const select_bolsafamilia = select_istrue("bolsafamilia")
+const select_loas = select_istrue("loas")
 
 export function FamilyForm() {
 
     const {handleChange, values, clearForm} = useForm({
-        //Usuario
-        nome: "",
-        rg: "",
-        cpf: "",
-        dtnasc: "",
-        escolaridade: "",
-        estadocivil: "",
-        emprego: "",
-        renda: "",
-        sonhovida: "",
-        sonhoprof: "",
+        //User
+        user_name: "",
+        user_rg: "",
+        user_cpf: "",
+        user_dtbirth: "",
+        user_school: "",
+        user_marital: "",
+        user_worksstatus: "",
+        user_income: "",
+        user_lifelongdream: "",
+        user_carrerdream: "",
         //Familia
         endereco: "",
         residencia: "",
@@ -51,17 +65,6 @@ export function FamilyForm() {
         console.log(values);
     };
 
-    const select_qtd_quartos = select_qtd("quartos")
-    const select_qtd_banheiros = select_qtd("banheiros")
-    const select_qtd_tvs = select_qtd("tvs")
-    const select_qtd_familia = select_qtd("familia")
-    const select_renda_user = select_renda("renda")
-    const select_renda_familia = select_renda("renda_familia")
-    const select_especial = select_istrue("especial")
-    const select_rendasuficiente = select_istrue("rendasuficiente")
-    const select_bolsafamilia = select_istrue("bolsafamilia")
-    const select_loas = select_istrue("loas")
-
     return (
 
         <div className='formWrapper'>
@@ -70,69 +73,69 @@ export function FamilyForm() {
                 <h2>Informações pessoais</h2>
                 <FormField
                     label="Nome"
-                    name="nome"
-                    value={values.nome}
+                    name="user_name"
+                    value={values.user_name}
                     onChange={handleChange}
                 />
                 <FormField 
                     label="RG"
-                    name="rg"
-                    value={values.rg}
+                    name="user_rg"
+                    value={values.user_rg}
                     onChange={handleChange}
                 />
                 <FormField 
                     label="CPF"
-                    name="cpf"
-                    value={values.cpf}
+                    name="user_cpf"
+                    value={values.user_cpf}
                     onChange={handleChange}
                 />
                 <FormField 
                     type="date"
                     label="Data de Nascimento"
-                    name="dtnasc"
-                    value={values.dtnasc}
+                    name="user_dtbirth"
+                    value={values.user_dtbirth}
                     onChange={handleChange}
                 />
                 <FormSelect
                     label="Escolaridade"
-                    name="escolaridade"
-                    values={select_escolaridade}
+                    name="user_school"
+                    values={select_user_school}
                     onChange={handleChange}
                 />
                 <FormSelect 
                     label="Estado Civil"
-                    name="estadocivil"
-                    values={select_estadocivil}
+                    name="user_marital"
+                    values={select_user_marital}
                     onChange={handleChange}
                 />
                 <FormSelect
                     label="Situação de Emprego"
-                    name="emprego"
-                    values={select_emprego}
+                    name="worksstatus"
+                    values={select_user_worksstatus}
                     onChange={handleChange}
                 />
-                <label htmlFor="id_renda" className="questionlabel">
+                <label htmlFor="id_user_income" className="questionlabel">
                     Geralmente, qual seu valor de renda mensal? 
                 </label>
                 <FormSelect
                     label="Renda Mensal"
-                    name="renda"
-                    values={select_renda_user}
+                    name="user_income"
+                    values={select_user_income}
                     onChange={handleChange}
                 />
                 <FormField 
                     type="textarea"
                     label="Qual seu maior sonho de vida?"
-                    name="sonhovida"
-                    value={values.sonhovida}
+                    name="user_lifelongdream"
+                    value={values.user_lifelongdream}
                     hidetxtarealabel={false}
                     onChange={handleChange}
                 />
                 <FormField 
                     type="textarea"
                     label="Qual seu maior sonho profissional?"
-                    name="sonhoprof"
-                    value={values.sonhoprof}
+                    name="user_carrerdream"
+                    value={values.user_carrerdream}
                     hidetxtarealabel={false}
                     onChange={handleChange}
                 />

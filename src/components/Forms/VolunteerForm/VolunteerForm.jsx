@@ -2,18 +2,25 @@ import { useForm } from "../../../hooks/useForm";
 import { FormCheckbox } from "../FormCheckbox/FormCheckbox";
 import { FormField } from "../FormField/FormField";
 import { FormSelect } from "../FormSelect/FormSelect";
-import { select_escolaridade, select_estadocivil } from "../FormSelect/SelectDefaultValues/SelectDefaultValues";
+import { select_school, select_marital, select_worksstatus } from "../FormSelect/SelectDefaultValues/SelectDefaultValues";
+
+const select_user_school = select_school("user_school")
+const select_user_marital= select_marital("user_marital")
+const select_user_worksstatus= select_worksstatus("user_worksstatus")
 
 export function VolunteerForm() {
 
     const {handleChange, values, clearForm} = useForm({
-        nome: "",
-        rg: "",
-        cpf: "",
-        dtnasc: "",
-        escolaridade: "",
-        estadocivil: "",
-        endereco: "",
+        user_name: "",
+        user_rg: "",
+        user_cpf: "",
+        user_dtbirth: "",
+        user_school: "",
+        user_marital: "",
+        user_worksstatus: "",
+        user_adress: "",
+        user_lifelongdream: "",
+        user_carrerdream: "",
         checkvoluntario: false,
         checkcompras: false,
         checkcontagem: false,
@@ -36,48 +43,70 @@ export function VolunteerForm() {
         <div className='formWrapper'>
             <form onSubmit={handleSubmit}>
 
-                <h2>Informações Pessoais</h2>
+                <h2>Informações pessoais</h2>
                 <FormField
                     label="Nome"
-                    name="nome"
-                    value={values.nome}
+                    name="user_name"
+                    value={values.user_name}
                     onChange={handleChange}
                 />
                 <FormField 
                     label="RG"
-                    name="rg"
-                    value={values.rg}
+                    name="user_rg"
+                    value={values.user_rg}
                     onChange={handleChange}
                 />
                 <FormField 
                     label="CPF"
-                    name="cpf"
-                    value={values.cpf}
+                    name="user_cpf"
+                    value={values.user_cpf}
                     onChange={handleChange}
                 />
                 <FormField 
                     type="date"
                     label="Data de Nascimento"
-                    name="dtnasc"
-                    value={values.dtnasc}
+                    name="user_dtbirth"
+                    value={values.user_dtbirth}
                     onChange={handleChange}
                 />
                 <FormSelect
                     label="Escolaridade"
-                    name="escolaridade"
-                    values={select_escolaridade}
+                    name="user_school"
+                    values={select_user_school}
                     onChange={handleChange}
                 />
                 <FormSelect 
                     label="Estado Civil"
-                    name="estadocivil"
-                    values={select_estadocivil}
+                    name="user_marital"
+                    values={select_user_marital}
+                    onChange={handleChange}
+                />
+                <FormSelect
+                    label="Situação de Emprego"
+                    name="worksstatus"
+                    values={select_user_worksstatus}
                     onChange={handleChange}
                 />
                 <FormField 
                     label="Endereço"
-                    name="endereco"
-                    value={values.endereco}
+                    name="user_adress"
+                    value={values.user_adress}
+                    onChange={handleChange}
+                />
+                <FormField 
+                    type="textarea"
+                    label="Qual seu maior sonho de vida?"
+                    name="user_lifelongdream"
+                    value={values.user_lifelongdream}
+                    hidetxtarealabel={false}
+                    onChange={handleChange}
+                />
+                <FormField 
+                    type="textarea"
+                    label="Qual seu maior sonho profissional?"
+                    name="user_carrerdream"
+                    value={values.user_carrerdream}
+                    hidetxtarealabel={false}
                     onChange={handleChange}
                 />
 

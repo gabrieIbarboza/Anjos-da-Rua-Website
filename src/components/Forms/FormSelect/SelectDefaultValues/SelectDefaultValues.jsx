@@ -1,25 +1,29 @@
 // Holds FormSelect values
-export const select_escolaridade = [
-    {selectid: 'escolaridade', label: 'Pessoa Analfabeta', value: 'analfabeto'},
-    {selectid: 'escolaridade', label: 'Educação Infantil Completa ou em Curso', value: 'infantil'},
-    {selectid: 'escolaridade', label: 'Ensino Fundamental Incompleto', value: 'ifundamental'},
-    {selectid: 'escolaridade', label: 'Ensino Fundamental Completo', value: 'fundamental'},
-    {selectid: 'escolaridade', label: 'Ensino Médio Incompleto', value: 'imedio'},
-    {selectid: 'escolaridade', label: 'Ensino Médio Completo', value: 'medio'},
-    {selectid: 'escolaridade', label: 'Ensino Superior Incompleto', value: 'isuperior'},
-    {selectid: 'escolaridade', label: 'Ensino Superior Completo', value: 'superior'},
-    {selectid: 'escolaridade', label: 'Pós-graduação', value: 'pos'},
-    {selectid: 'escolaridade', label: 'Mestrado', value: 'mestrado'},
-    {selectid: 'escolaridade', label: 'Doutorado', value: 'doutorado'},
-];
+export function select_school(selectid) {
+    return ([
+        {selectid: selectid, label: 'Pessoa Analfabeta', value: 'analfabeto'},
+        {selectid: selectid, label: 'Educação Infantil Completa ou em Curso', value: 'infantil'},
+        {selectid: selectid, label: 'Ensino Fundamental Incompleto', value: 'ifundamental'},
+        {selectid: selectid, label: 'Ensino Fundamental Completo', value: 'fundamental'},
+        {selectid: selectid, label: 'Ensino Médio Incompleto', value: 'imedio'},
+        {selectid: selectid, label: 'Ensino Médio Completo', value: 'medio'},
+        {selectid: selectid, label: 'Ensino Superior Incompleto', value: 'isuperior'},
+        {selectid: selectid, label: 'Ensino Superior Completo', value: 'superior'},
+        {selectid: selectid, label: 'Pós-graduação', value: 'pos'},
+        {selectid: selectid, label: 'Mestrado', value: 'mestrado'},
+        {selectid: selectid, label: 'Doutorado', value: 'doutorado'},
+    ])
+}
 
-export const select_estadocivil = [
-    {selectid: 'estadocivil', label: 'Pessoa Solteira', value: 'solteiro'},
-    {selectid: 'estadocivil', label: 'Pessoa Casada', value: 'casado'},
-    {selectid: 'estadocivil', label: 'Pessoa Separada', value: 'separado'},
-    {selectid: 'estadocivil', label: 'Pessoa Divorciada', value: 'divorciado'},
-    {selectid: 'estadocivil', label: 'Pessoa Viúva', value: 'viuvo'},
-];
+export function select_marital(selectid) {
+    return ([
+        {selectid: selectid, label: 'Pessoa Solteira', value: 'solteiro'},
+        {selectid: selectid, label: 'Pessoa Casada', value: 'casado'},
+        {selectid: selectid, label: 'Pessoa Separada', value: 'separado'},
+        {selectid: selectid, label: 'Pessoa Divorciada', value: 'divorciado'},
+        {selectid: selectid, label: 'Pessoa Viúva', value: 'viuvo'},
+    ])
+};
 
 export const select_residencia = [
     {selectid: 'residencia', label: 'Residência Própria', value: 'proprio'},
@@ -46,7 +50,7 @@ export function select_qtd(selectid) {
     ])
 }
 
-export function select_renda(selectid) {
+export function select_income(selectid) {
     return ([
         {selectid: selectid, label: 'Nenhuma renda (R$0,00)', value: 'Nenhuma renda'},
         {selectid: selectid, label: 'Menos de R$500', value: 'Menos de R$500'},
@@ -59,17 +63,19 @@ export function select_renda(selectid) {
     ])
 }
 
-export const select_emprego = [
-    {selectid: "emprego", label: 'Pessoa Desempregrada', value: 'Pessoa Desempregrada'},
-    {selectid: "emprego", label: 'Pessoa Empregada', value: 'Pessoa Empregada'},
-    {selectid: "emprego", label: 'Pessoa Autônoma', value: 'Pessoa Autônoma'},
-    {selectid: "emprego", label: 'Pessoal Aposentada', value: 'Pessoal Aposentada'},
-    {selectid: "emprego", label: 'Em Linceça / Afastado', value: 'Em Linceça / Afastado'},
-    {selectid: "emprego", label: 'Freelancer', value: 'Freelancer'},
-    {selectid: "emprego", label: 'Estudante', value: 'Estudante'},
-    {selectid: "emprego", label: 'Emprego Não Remunerado', value: 'Emprego Não Remunerado'},
-    {selectid: "emprego", label: 'Outro', value: 'Outro'},
-]
+export function select_worksstatus(selectid) {
+    return ([
+        {selectid: selectid, label: 'Pessoa Desempregrada', value: 'Pessoa Desempregrada'},
+        {selectid: selectid, label: 'Pessoa Empregada', value: 'Pessoa Empregada'},
+        {selectid: selectid, label: 'Pessoa Autônoma', value: 'Pessoa Autônoma'},
+        {selectid: selectid, label: 'Pessoal Aposentada', value: 'Pessoal Aposentada'},
+        {selectid: selectid, label: 'Em Linceça / Afastado', value: 'Em Linceça / Afastado'},
+        {selectid: selectid, label: 'Freelancer', value: 'Freelancer'},
+        {selectid: selectid, label: 'Estudante', value: 'Estudante'},
+        {selectid: selectid, label: 'Emprego Não Remunerado', value: 'Emprego Não Remunerado'},
+        {selectid: selectid, label: 'Outro', value: 'Outro'},
+    ])
+}
 
 export const select_escolaridade_criancas = [
     {selectid: "escolaridade_criancas", label: 'Não há crianças no grupo familiar', value: 'Não há crianças no grupo familiar'},
