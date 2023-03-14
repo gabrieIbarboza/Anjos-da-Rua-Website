@@ -29,6 +29,7 @@ export function ContactForm() {
                     onChange={handleChange}
                 />
                 <FormField 
+                    type="email"
                     label="Email"
                     name="email"
                     value={values.email}

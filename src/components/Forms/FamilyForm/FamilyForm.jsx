@@ -226,6 +226,7 @@ export function FamilyForm() {
                     name="cuidadosespecial"
                     value={values.cuidadosespecial}
                     onChange={handleChange}
+                    isRequired={false}
                 />
 
 
@@ -272,6 +273,7 @@ export function FamilyForm() {
                     name="despesasespeciais"
                     value={values.despesasespeciais}
                     onChange={handleChange}
+                    isRequired={false}
                 />
                 <label htmlFor="id_rendasuficiente" className="questionlabel">
                     Atualmente, a renda do grupo familiar é suficiente para o sustento de todos?                 </label>
@@ -303,7 +305,7 @@ export function FamilyForm() {
                     onChange={handleChange}
                 />
                 <label htmlFor="id_cadunico" className="questionlabel">
-                    Se possui, qual o número do CadÚnico do grupo familiar?
+                    Se possuir, qual o número do CadÚnico do grupo familiar?
                 </label>
                 <FormField
                     type="number"
@@ -311,6 +313,7 @@ export function FamilyForm() {
                     name="cadunico"
                     value={values.cadunico}
                     onChange={handleChange}
+                    isRequired={false}
                 />
                 <label htmlFor="id_outrobeneficio" className="questionlabel">
                     O grupo familiar recebe algum outro benefício?
@@ -321,6 +324,7 @@ export function FamilyForm() {
                     name="outrobeneficio"
                     value={values.outrobeneficio}
                     onChange={handleChange}
+                    isRequired={false}
                 />
 
 

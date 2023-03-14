@@ -6,7 +6,7 @@ import "./FormField.scss";
 //Add Icon later: https://codepen.io/fatmali/pen/aboNdra
 
 export function FormField({ 
-    label, name, type, value, onChange, hidetxtarealabel 
+    label, name, type, value, onChange, hidetxtarealabel, isRequired
 }) {
 
     const fieldId = `id_${name}`;
@@ -26,6 +26,7 @@ export function FormField({
                             data-hasvalue={hasValue}
                             data-hidetxtarealabel={hidetxtarealabel}
                             onChange={onChange}
+                            required={isRequired}
                         />
                         <span className="labelText">
                             {label}
@@ -46,6 +47,7 @@ export function FormField({
                             value={value}
                             data-hasvalue={hasValue}
                             onChange={onChange}
+                            required={isRequired}
                         />
                         <span className="labelText">
                             {label}
@@ -62,6 +64,7 @@ FormField.defaultProps = {
     value: '',
     onChange: () => {},
     hidetxtarealabel: true,
+    isRequired: true,
 };
   
 FormField.propTypes = {
@@ -71,4 +74,5 @@ FormField.propTypes = {
     value: PropTypes.string,
     onChange: PropTypes.func,
     hidetxtarealabel: PropTypes.bool,
+    isRequired: PropTypes.bool,
 };
